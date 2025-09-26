@@ -122,11 +122,11 @@ export default function TodayScreen() {
   const renderProgressRing = () => {
     const percentage = getCompletionPercentage();
     return (
-      <ThemedView style={styles.progressContainer}>
+      <ThemedView style={[styles.progressContainer, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
         <View style={styles.progressRing}>
           <ThemedText style={styles.progressText}>{percentage}%</ThemedText>
         </View>
-        <ThemedText style={styles.progressLabel}>Today's Progress</ThemedText>
+        <ThemedText style={[styles.progressLabel, { color: colorScheme === 'dark' ? '#ccc' : '#666' }]}>Today's Progress</ThemedText>
       </ThemedView>
     );
   };
@@ -202,17 +202,17 @@ export default function TodayScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-      <ThemedView style={styles.header}>
+      <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
         <View>
-          <ThemedText style={styles.greeting}>Good Morning! 👋</ThemedText>
-          <ThemedText style={styles.date}>{formatDate(currentDate)}</ThemedText>
+          <ThemedText style={[styles.greeting, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Good Morning! 👋</ThemedText>
+          <ThemedText style={[styles.date, { color: colorScheme === 'dark' ? '#ccc' : '#666' }]}>{formatDate(currentDate)}</ThemedText>
         </View>
       </ThemedView>
 
       {renderProgressRing()}
 
       <View style={styles.content}>
-        <ThemedText style={styles.sectionTitle}>Today&apos;s Habits</ThemedText>
+        <ThemedText style={[styles.sectionTitle, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Today&apos;s Habits</ThemedText>
 
         <FlatList
           data={habits}

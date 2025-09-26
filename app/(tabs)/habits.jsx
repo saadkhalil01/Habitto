@@ -171,8 +171,8 @@ export default function HabitsScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <ThemedView style={styles.header}>
-                <ThemedText style={styles.title}>My Habits</ThemedText>
+            <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
+                <ThemedText style={[styles.title, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>My Habits</ThemedText>
                 <TouchableOpacity style={styles.addButton} onPress={handleAddHabit}>
                     <IconSymbol name="plus" size={24} color="white" />
                 </TouchableOpacity>
@@ -200,10 +200,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 20,
-        paddingVertical: 16,
+        paddingVertical: 20,
         backgroundColor: 'white',
         borderBottomWidth: 1,
         borderBottomColor: '#E5E5E5',
+        height: 80,
     },
     title: {
         fontSize: 28,

@@ -156,11 +156,11 @@ export default function HabitFormModal() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <ThemedView style={styles.header}>
+            <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
                 <TouchableOpacity onPress={() => router.back()}>
-                    <IconSymbol name="xmark" size={24} color={Colors[colorScheme ?? 'light'].text} />
+                    <IconSymbol name="xmark" size={24} color={colorScheme === 'dark' ? '#fff' : Colors[colorScheme ?? 'light'].text} />
                 </TouchableOpacity>
-                <ThemedText style={styles.title}>New Habit</ThemedText>
+                <ThemedText style={[styles.title, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>New Habit</ThemedText>
                 <TouchableOpacity onPress={handleSave}>
                     <ThemedText style={styles.saveButton}>Save</ThemedText>
                 </TouchableOpacity>
@@ -284,10 +284,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 20,
-        paddingVertical: 16,
+        paddingVertical: 20,
         backgroundColor: 'white',
         borderBottomWidth: 1,
         borderBottomColor: '#E5E5E5',
+        height: 80,
     },
     title: {
         fontSize: 18,

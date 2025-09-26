@@ -194,8 +194,8 @@ export default function ProfileScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <ThemedView style={styles.header}>
-                <ThemedText style={styles.title}>Profile</ThemedText>
+            <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
+                <ThemedText style={[styles.title, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Profile</ThemedText>
             </ThemedView>
 
             <ScrollView
@@ -225,10 +225,11 @@ const styles = StyleSheet.create({
     },
     header: {
         paddingHorizontal: 20,
-        paddingVertical: 16,
+        paddingVertical: 20,
         backgroundColor: 'white',
         borderBottomWidth: 1,
         borderBottomColor: '#E5E5E5',
+        height: 80,
     },
     title: {
         fontSize: 28,
