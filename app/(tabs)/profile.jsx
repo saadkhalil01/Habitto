@@ -296,6 +296,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '600',
         marginBottom: 16,
+        color: '#000',
     },
     statsGrid: {
         flexDirection: 'row',
@@ -349,6 +350,7 @@ const styles = StyleSheet.create({
     settingTitle: {
         fontSize: 16,
         marginLeft: 12,
+        color: '#000',
     },
     destructiveText: {
         color: '#FF3B30',

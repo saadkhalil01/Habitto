@@ -1,15 +1,16 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
+import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useState } from 'react';
 import {
-    SafeAreaView,
     ScrollView,
     StyleSheet,
     TouchableOpacity,
     View
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Mock data for progress tracking
 const mockProgressData = {
@@ -263,7 +264,7 @@ export default function ProgressScreen() {
     };
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
             <ThemedView style={styles.header}>
                 <ThemedText style={styles.title}>Progress</ThemedText>
             </ThemedView>
@@ -345,6 +346,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '600',
         marginBottom: 20,
+        color: '#000',
     },
     weeklyOverview: {
         flexDirection: 'row',
@@ -404,6 +406,7 @@ const styles = StyleSheet.create({
     habitDetailName: {
         fontSize: 16,
         fontWeight: '600',
+        color: '#000',
     },
     completionRate: {
         fontSize: 18,
@@ -472,6 +475,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         marginBottom: 4,
+        color: '#000',
     },
     milestoneSubtitle: {
         fontSize: 14,
