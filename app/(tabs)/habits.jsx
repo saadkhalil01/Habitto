@@ -1,3 +1,4 @@
+import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -171,12 +172,11 @@ export default function HabitsScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
-                <ThemedText style={[styles.title, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>My Habits</ThemedText>
-                <TouchableOpacity style={styles.addButton} onPress={handleAddHabit}>
-                    <IconSymbol name="plus" size={24} color="white" />
-                </TouchableOpacity>
-            </ThemedView>
+            <AppHeader
+                title="My Habits"
+                rightIcon="plus"
+                onRightPress={handleAddHabit}
+            />
 
             {renderCategoryFilter()}
 
@@ -194,30 +194,6 @@ export default function HabitsScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-        paddingVertical: 20,
-        backgroundColor: 'white',
-        borderBottomWidth: 1,
-        borderBottomColor: '#E5E5E5',
-        height: 80,
-    },
-    title: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#000',
-    },
-    addButton: {
-        backgroundColor: '#007AFF',
-        width: 44,
-        height: 44,
-        borderRadius: 22,
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     categoryContainer: {
         paddingVertical: 16,

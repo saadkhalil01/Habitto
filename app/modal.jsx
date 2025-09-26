@@ -1,5 +1,5 @@
+import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -156,15 +156,14 @@ export default function HabitFormModal() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
-                <TouchableOpacity onPress={() => router.back()}>
-                    <IconSymbol name="xmark" size={24} color={colorScheme === 'dark' ? '#fff' : Colors[colorScheme ?? 'light'].text} />
-                </TouchableOpacity>
-                <ThemedText style={[styles.title, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>New Habit</ThemedText>
-                <TouchableOpacity onPress={handleSave}>
-                    <ThemedText style={styles.saveButton}>Save</ThemedText>
-                </TouchableOpacity>
-            </ThemedView>
+            <AppHeader
+                title="New Habit"
+                leftIcon="xmark"
+                onLeftPress={() => router.back()}
+                rightText="Save"
+                onRightPress={handleSave}
+                leftIconColor={null}
+            />
 
             <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
                 <View style={styles.section}>
@@ -278,27 +277,6 @@ export default function HabitFormModal() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-        paddingVertical: 20,
-        backgroundColor: 'white',
-        borderBottomWidth: 1,
-        borderBottomColor: '#E5E5E5',
-        height: 80,
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: '600',
-        color: '#000',
-    },
-    saveButton: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: '#007AFF',
     },
     content: {
         flex: 1,

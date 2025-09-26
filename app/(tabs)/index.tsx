@@ -1,3 +1,4 @@
+import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -202,11 +203,11 @@ export default function TodayScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-      <ThemedView style={[styles.header, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
-        <View>
-          <ThemedText style={[styles.greeting, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Good Morning! 👋</ThemedText>
-          <ThemedText style={[styles.date, { color: colorScheme === 'dark' ? '#ccc' : '#666' }]}>{formatDate(currentDate)}</ThemedText>
-        </View>
+      <AppHeader title="Today" />
+
+      <ThemedView style={[styles.greetingContainer, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
+        <ThemedText style={[styles.greeting, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Good Morning! 👋</ThemedText>
+        <ThemedText style={[styles.date, { color: colorScheme === 'dark' ? '#ccc' : '#666' }]}>{formatDate(currentDate)}</ThemedText>
       </ThemedView>
 
       {renderProgressRing()}
@@ -230,21 +231,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
+  greetingContainer: {
     paddingHorizontal: 20,
-    paddingVertical: 20,
-    backgroundColor: 'white',
+    paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5E5',
   },
   greeting: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
   },
   date: {
     fontSize: 16,
-    color: '#666',
     marginTop: 4,
   },
   progressContainer: {
