@@ -101,7 +101,7 @@ export default function ProfileScreen() {
         <ThemedView style={styles.profileSection}>
             <View style={styles.profileHeader}>
                 <View style={styles.avatarContainer}>
-                    <IconSymbol name="person.circle.fill" size={80} color={Colors[colorScheme ?? 'light'].tint} />
+                    <IconSymbol name="person.circle.fill" size={80} color={'grey'} />
                 </View>
                 <View style={styles.profileInfo}>
                     <ThemedText style={styles.userName}>{mockUser.name}</ThemedText>
