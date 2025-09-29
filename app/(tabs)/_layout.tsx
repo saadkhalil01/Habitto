@@ -12,7 +12,12 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tabIconSelected,
+        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].tabIconDefault,
+        tabBarStyle: {
+          backgroundColor: colorScheme === 'dark' ? '#000' : '#fff',
+          borderTopColor: colorScheme === 'dark' ? '#1C1C1E' : '#E5E5E5',
+        },
         headerShown: false,
         tabBarButton: HapticTab,
       }}>
@@ -20,28 +25,52 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Today',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="sun.max.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <IconSymbol
+              size={28}
+              name="sun.max.fill"
+              color={focused ? Colors[colorScheme ?? 'light'].tabIconSelected : Colors[colorScheme ?? 'light'].tabIconDefault}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="habits"
         options={{
           title: 'Habits',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="checkmark.circle.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <IconSymbol
+              size={28}
+              name="checkmark.circle.fill"
+              color={focused ? Colors[colorScheme ?? 'light'].tabIconSelected : Colors[colorScheme ?? 'light'].tabIconDefault}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="progress"
         options={{
           title: 'Progress',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="chart.line.uptrend.xyaxis" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <IconSymbol
+              size={28}
+              name="chart.line.uptrend.xyaxis"
+              color={focused ? Colors[colorScheme ?? 'light'].tabIconSelected : Colors[colorScheme ?? 'light'].tabIconDefault}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.circle.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <IconSymbol
+              size={28}
+              name="person.circle.fill"
+              color={focused ? Colors[colorScheme ?? 'light'].tabIconSelected : Colors[colorScheme ?? 'light'].tabIconDefault}
+            />
+          ),
         }}
       />
     </Tabs>

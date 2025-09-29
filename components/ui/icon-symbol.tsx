@@ -1,7 +1,7 @@
 // Fallback for using MaterialIcons on Android and web.
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
+import { SymbolViewProps, SymbolWeight } from 'expo-symbols';
 import { ComponentProps } from 'react';
 import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
 
@@ -18,6 +18,48 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  // Tab bar icons
+  'sun.max.fill': 'wb-sunny',
+  'checkmark.circle.fill': 'check-circle',
+  'chart.line.uptrend.xyaxis': 'trending-up',
+  'person.circle.fill': 'account-circle',
+  // Header and UI icons
+  'plus': 'add',
+  'xmark': 'close',
+  'pencil': 'edit',
+  'trash': 'delete',
+  'checkmark': 'check',
+  'calendar': 'event',
+  'list.bullet': 'format-list-bulleted',
+  'chart.bar.fill': 'bar-chart',
+  'person.fill': 'person',
+  // Habit icons
+  'drop.fill': 'water-drop',
+  'figure.run': 'directions-run',
+  'book.fill': 'menu-book',
+  'cup.and.straw': 'local-drink',
+  'moon.fill': 'bedtime',
+  'leaf.fill': 'eco',
+  'heart.fill': 'favorite',
+  'brain.head.profile': 'psychology',
+  'music.note': 'music-note',
+  'camera.fill': 'photo-camera',
+  'gamecontroller.fill': 'sports-esports',
+  'phone.down.fill': 'phone-disabled',
+  'dollarsign.circle.fill': 'attach-money',
+  'minus': 'remove',
+  'star.fill': 'star',
+  'star': 'star-border',
+  'envelope': 'email',
+  'questionmark.circle': 'help',
+  'lock': 'lock',
+  'bell': 'notifications',
+  'person.circle': 'account-circle',
+  'moon': 'brightness-2',
+  'speaker.wave.2': 'volume-up',
+  'hand.tap': 'touch-app',
+  'icloud.and.arrow.up': 'cloud-upload',
+  'square.and.arrow.up': 'share',
 } as IconMapping;
 
 /**
