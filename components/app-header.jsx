@@ -1,6 +1,7 @@
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
+import { Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -75,16 +76,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 80,
         paddingHorizontal: 20,
-        borderBottomWidth: 1,
-        borderBottomColor: '#E5E5E5',
     },
     leftSection: {
         flex: 1,
         alignItems: 'flex-start',
     },
     centerSection: {
-        flex: 2,
-        alignItems: 'center',
+        height: 80,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
     },
     rightSection: {
         flex: 1,
@@ -92,7 +93,9 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
+        textAlign: 'left',
     },
     iconButton: {
         width: 44,
@@ -110,6 +113,7 @@ const styles = StyleSheet.create({
     },
     rightTextButton: {
         fontSize: 16,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         color: '#007AFF',
     },

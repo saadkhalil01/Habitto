@@ -3,7 +3,7 @@ import React from 'react';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
@@ -17,6 +17,11 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colorScheme === 'dark' ? '#000' : '#fff',
           borderTopColor: colorScheme === 'dark' ? '#1C1C1E' : '#E5E5E5',
+        },
+        tabBarLabelStyle: {
+          fontFamily: Fonts?.medium || 'System',
+          fontSize: 12,
+          fontWeight: '500',
         },
         headerShown: false,
         tabBarButton: HapticTab,

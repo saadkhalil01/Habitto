@@ -29,22 +29,48 @@ export const Colors = {
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
+    /** Urbanist font family for iOS */
+    regular: 'Urbanist_400Regular',
+    medium: 'Urbanist_500Medium',
+    semiBold: 'Urbanist_600SemiBold',
+    bold: 'Urbanist_700Bold',
+    /** Fallback fonts */
     sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
+  android: {
+    /** Urbanist font family for Android */
+    regular: 'Urbanist_400Regular',
+    medium: 'Urbanist_500Medium',
+    semiBold: 'Urbanist_600SemiBold',
+    bold: 'Urbanist_700Bold',
+    /** Fallback fonts */
+    sans: 'normal',
+    serif: 'serif',
+    rounded: 'normal',
+    mono: 'monospace',
+  },
   default: {
+    /** Urbanist font family default */
+    regular: 'Urbanist_400Regular',
+    medium: 'Urbanist_500Medium',
+    semiBold: 'Urbanist_600SemiBold',
+    bold: 'Urbanist_700Bold',
+    /** Fallback fonts */
     sans: 'normal',
     serif: 'serif',
     rounded: 'normal',
     mono: 'monospace',
   },
   web: {
+    /** Urbanist font family for web */
+    regular: 'Urbanist_400Regular',
+    medium: 'Urbanist_500Medium',
+    semiBold: 'Urbanist_600SemiBold',
+    bold: 'Urbanist_700Bold',
+    /** Fallback fonts */
     sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
     serif: "Georgia, 'Times New Roman', serif",
     rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",

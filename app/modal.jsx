@@ -1,7 +1,7 @@
 import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -83,7 +83,7 @@ export default function HabitFormModal() {
                         <IconSymbol
                             name={icon}
                             size={24}
-                            color={habitData.icon === icon ? 'white' : '#666'}
+                            color={habitData.icon === icon ? 'white' : Colors[colorScheme ?? 'light'].icon}
                         />
                     </TouchableOpacity>
                 ))}
@@ -240,7 +240,7 @@ export default function HabitFormModal() {
                                     targetCount: Math.max(1, habitData.targetCount - 1)
                                 })}
                             >
-                                <IconSymbol name="minus" size={20} color="#007AFF" />
+                                <IconSymbol name="minus" size={20} color={Colors[colorScheme ?? 'light'].tint} />
                             </TouchableOpacity>
                             <ThemedText style={styles.targetNumber}>{habitData.targetCount}</ThemedText>
                             <TouchableOpacity
@@ -250,7 +250,7 @@ export default function HabitFormModal() {
                                     targetCount: habitData.targetCount + 1
                                 })}
                             >
-                                <IconSymbol name="plus" size={20} color="#007AFF" />
+                                <IconSymbol name="plus" size={20} color={Colors[colorScheme ?? 'light'].tint} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -287,6 +287,7 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 16,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         marginBottom: 12,
         color: '#000',
@@ -296,6 +297,7 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         padding: 16,
         fontSize: 16,
+        fontFamily: Fonts?.regular || 'System',
         borderWidth: 1,
         borderColor: '#E5E5E5',
     },
@@ -356,6 +358,7 @@ const styles = StyleSheet.create({
     },
     categoryText: {
         fontSize: 14,
+        fontFamily: Fonts?.medium || 'System',
         color: '#666',
     },
     selectedCategoryText: {
@@ -378,6 +381,7 @@ const styles = StyleSheet.create({
     },
     toggleText: {
         fontSize: 16,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
     },
     selectedToggleText: {
@@ -412,6 +416,7 @@ const styles = StyleSheet.create({
     },
     frequencyText: {
         fontSize: 16,
+        fontFamily: Fonts?.regular || 'System',
         color: '#000',
     },
     targetContainer: {
@@ -432,6 +437,7 @@ const styles = StyleSheet.create({
     },
     targetNumber: {
         fontSize: 24,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
         marginHorizontal: 32,
         color: '#000',

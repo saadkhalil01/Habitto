@@ -2,7 +2,7 @@ import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useState } from 'react';
 import {
@@ -127,7 +127,7 @@ export default function TodayScreen() {
         <View style={styles.progressRing}>
           <ThemedText style={styles.progressText}>{percentage}%</ThemedText>
         </View>
-        <ThemedText style={[styles.progressLabel, { color: colorScheme === 'dark' ? '#ccc' : '#666' }]}>Today's Progress</ThemedText>
+        <ThemedText type="default" lightColor="#666" darkColor="#ccc">Today's Progress</ThemedText>
       </ThemedView>
     );
   };
@@ -203,17 +203,20 @@ export default function TodayScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-      <AppHeader title="Today" />
+      <AppHeader title="Today" leftIcon={undefined} rightIcon={undefined} onLeftPress={undefined} onRightPress={undefined} rightText={undefined} leftIconColor={undefined} rightIconColor={undefined} />
 
       <ThemedView style={[styles.greetingContainer, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
-        <ThemedText style={[styles.greeting, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Good Morning! 👋</ThemedText>
-        <ThemedText style={[styles.date, { color: colorScheme === 'dark' ? '#ccc' : '#666' }]}>{formatDate(currentDate)}</ThemedText>
+        <ThemedText type="title" lightColor="#000" darkColor="#fff">Good Morning! 👋</ThemedText>
+        <ThemedText type="default" lightColor="#666" darkColor="#ccc">{formatDate(currentDate)}</ThemedText>
       </ThemedView>
 
       {renderProgressRing()}
 
-      <View style={styles.content}>
-        <ThemedText style={[styles.sectionTitle, { color: colorScheme === 'dark' ? '#fff' : '#000' }]}>Today&apos;s Habits</ThemedText>
+      <View style={[styles.content, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
+        <ThemedText type="subtitle" lightColor="#000"
+          darkColor="#fff" style={styles.sectionTitleSpacing}>
+          Today&apos;s Habits
+        </ThemedText>
 
         <FlatList
           data={habits}
@@ -233,17 +236,6 @@ const styles = StyleSheet.create({
   },
   greetingContainer: {
     paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E5E5',
-  },
-  greeting: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  date: {
-    fontSize: 16,
-    marginTop: 4,
   },
   progressContainer: {
     alignItems: 'center',
@@ -262,23 +254,16 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 24,
+    fontFamily: Fonts?.bold || 'System',
     fontWeight: 'bold',
     color: 'white',
   },
-  progressLabel: {
-    fontSize: 16,
-    color: '#666',
-  },
   content: {
     flex: 1,
-    paddingTop: 20,
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: '600',
+  sectionTitleSpacing: {
     paddingHorizontal: 20,
     marginBottom: 16,
-    color: '#000',
   },
   habitsList: {
     paddingHorizontal: 20,
@@ -288,14 +273,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 16,
     marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
   habitHeader: {
     flexDirection: 'row',
@@ -321,12 +298,14 @@ const styles = StyleSheet.create({
   },
   habitName: {
     fontSize: 18,
+    fontFamily: Fonts?.semiBold || 'System',
     fontWeight: '600',
     marginBottom: 4,
     color: '#000',
   },
   habitProgress: {
     fontSize: 14,
+    fontFamily: Fonts?.regular || 'System',
     color: '#666',
   },
   habitActions: {

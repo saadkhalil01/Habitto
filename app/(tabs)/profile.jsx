@@ -2,7 +2,7 @@ import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useState } from 'react';
 import {
@@ -101,7 +101,7 @@ export default function ProfileScreen() {
         <ThemedView style={styles.profileSection}>
             <View style={styles.profileHeader}>
                 <View style={styles.avatarContainer}>
-                    <IconSymbol name="person.circle.fill" size={80} color="#007AFF" />
+                    <IconSymbol name="person.circle.fill" size={80} color={Colors[colorScheme ?? 'light'].tint} />
                 </View>
                 <View style={styles.profileInfo}>
                     <ThemedText style={styles.userName}>{mockUser.name}</ThemedText>
@@ -151,7 +151,7 @@ export default function ProfileScreen() {
                         <IconSymbol
                             name={item.icon}
                             size={24}
-                            color={item.type === 'destructive' ? '#FF3B30' : Colors[colorScheme ?? 'light'].text}
+                            color={item.type === 'destructive' ? '#FF3B30' : Colors[colorScheme ?? 'light'].icon}
                         />
                         <ThemedText
                             style={[
@@ -175,7 +175,7 @@ export default function ProfileScreen() {
                             <IconSymbol
                                 name="chevron.right"
                                 size={16}
-                                color="#C7C7CC"
+                                color={Colors[colorScheme ?? 'light'].icon}
                             />
                         )}
                     </View>
@@ -251,17 +251,20 @@ const styles = StyleSheet.create({
     },
     userName: {
         fontSize: 24,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
         marginBottom: 4,
         color: '#000',
     },
     userEmail: {
         fontSize: 16,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
         marginBottom: 4,
     },
     joinDate: {
         fontSize: 14,
+        fontFamily: Fonts?.regular || 'System',
         color: '#999',
     },
     statsSection: {
@@ -281,6 +284,7 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 18,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         marginBottom: 16,
         color: '#000',
@@ -297,12 +301,14 @@ const styles = StyleSheet.create({
     },
     statNumber: {
         fontSize: 28,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
         color: '#007AFF',
         marginBottom: 4,
     },
     statLabel: {
         fontSize: 14,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
         textAlign: 'center',
     },
@@ -336,6 +342,7 @@ const styles = StyleSheet.create({
     },
     settingTitle: {
         fontSize: 16,
+        fontFamily: Fonts?.regular || 'System',
         marginLeft: 12,
         color: '#000',
     },
@@ -356,6 +363,7 @@ const styles = StyleSheet.create({
     signOutText: {
         color: 'white',
         fontSize: 16,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
     },
     appVersion: {
@@ -364,6 +372,7 @@ const styles = StyleSheet.create({
     },
     versionText: {
         fontSize: 14,
+        fontFamily: Fonts?.regular || 'System',
         color: '#999',
     },
 });

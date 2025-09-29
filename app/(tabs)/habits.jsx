@@ -2,7 +2,7 @@ import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
@@ -128,7 +128,7 @@ export default function HabitsScreen() {
                         style={styles.actionButton}
                         onPress={() => handleEditHabit(item)}
                     >
-                        <IconSymbol name="pencil" size={20} color={Colors[colorScheme ?? 'light'].text} />
+                        <IconSymbol name="pencil" size={20} color={Colors[colorScheme ?? 'light'].icon} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.actionButton}
@@ -211,6 +211,7 @@ const styles = StyleSheet.create({
     },
     categoryText: {
         fontSize: 14,
+        fontFamily: Fonts?.medium || 'System',
         fontWeight: '500',
         color: '#666',
     },
@@ -257,12 +258,14 @@ const styles = StyleSheet.create({
     },
     habitName: {
         fontSize: 18,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         marginBottom: 4,
         color: '#000',
     },
     habitCategory: {
         fontSize: 14,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
         marginBottom: 8,
     },
@@ -272,12 +275,14 @@ const styles = StyleSheet.create({
     },
     streakText: {
         fontSize: 14,
+        fontFamily: Fonts?.medium || 'System',
         fontWeight: '500',
         color: '#FF6B35',
         marginRight: 12,
     },
     bestStreakText: {
         fontSize: 12,
+        fontFamily: Fonts?.regular || 'System',
         color: '#999',
     },
     habitActions: {

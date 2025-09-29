@@ -19,9 +19,9 @@ const MAPPING = {
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
   // Tab bar icons
-  'sun.max.fill': 'wb-sunny',
-  'checkmark.circle.fill': 'check-circle',
-  'chart.line.uptrend.xyaxis': 'trending-up',
+  'sun.max.fill': 'today',
+  'checkmark.circle.fill': 'check-circle-outline',
+  'chart.line.uptrend.xyaxis': 'bar-chart',
   'person.circle.fill': 'account-circle',
   // Header and UI icons
   'plus': 'add',
@@ -52,15 +52,15 @@ const MAPPING = {
   'star': 'star-border',
   'envelope': 'email',
   'questionmark.circle': 'help',
-  'lock': 'lock',
-  'bell': 'notifications',
+  'lock': 'lock-outline',
+  'bell': 'notifications-none',
   'person.circle': 'account-circle',
   'moon': 'brightness-2',
   'speaker.wave.2': 'volume-up',
   'hand.tap': 'touch-app',
   'icloud.and.arrow.up': 'cloud-upload',
   'square.and.arrow.up': 'share',
-} as IconMapping;
+} as unknown as IconMapping;
 
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.

@@ -2,7 +2,7 @@ import AppHeader from '@/components/app-header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
+import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import React, { useState } from 'react';
 import {
@@ -172,7 +172,7 @@ export default function ProgressScreen() {
                         <IconSymbol
                             name={milestone.achieved ? 'star.fill' : 'star'}
                             size={24}
-                            color={milestone.achieved ? '#FFD700' : '#CCC'}
+                            color={milestone.achieved ? '#FFD700' : Colors[colorScheme ?? 'light'].icon}
                         />
                     </View>
                     <View style={styles.milestoneInfo}>
@@ -197,7 +197,7 @@ export default function ProgressScreen() {
     );
 
     const renderViewSelector = () => (
-        <View style={styles.viewSelector}>
+        <View style={[styles.viewSelector, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
             <TouchableOpacity
                 style={[
                     styles.viewButton,
@@ -266,7 +266,7 @@ export default function ProgressScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <AppHeader title="Progress" />
+            <AppHeader title="Progress" leftIcon={undefined} rightIcon={undefined} onLeftPress={undefined} onRightPress={undefined} rightText={undefined} leftIconColor={undefined} rightIconColor={undefined} />
 
             {renderViewSelector()}
 
@@ -289,8 +289,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingHorizontal: 20,
         paddingVertical: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: '#E5E5E5',
     },
     viewButton: {
         flex: 1,
@@ -306,6 +304,7 @@ const styles = StyleSheet.create({
     },
     viewButtonText: {
         fontSize: 14,
+        fontFamily: Fonts?.medium || 'System',
         fontWeight: '500',
         color: '#666',
     },
@@ -331,6 +330,7 @@ const styles = StyleSheet.create({
     },
     sectionTitle: {
         fontSize: 20,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         marginBottom: 20,
         color: '#000',
@@ -345,6 +345,7 @@ const styles = StyleSheet.create({
     },
     dayLabel: {
         fontSize: 12,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
         marginBottom: 8,
     },
@@ -366,6 +367,7 @@ const styles = StyleSheet.create({
     },
     dayText: {
         fontSize: 10,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
     },
     habitDetailCard: {
@@ -392,11 +394,13 @@ const styles = StyleSheet.create({
     },
     habitDetailName: {
         fontSize: 16,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         color: '#000',
     },
     completionRate: {
         fontSize: 18,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
         color: '#007AFF',
     },
@@ -410,11 +414,13 @@ const styles = StyleSheet.create({
     },
     streakNumber: {
         fontSize: 24,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
         color: '#FF6B35',
     },
     streakLabel: {
         fontSize: 12,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
         marginTop: 4,
     },
@@ -423,6 +429,7 @@ const styles = StyleSheet.create({
     },
     chartTitle: {
         fontSize: 14,
+        fontFamily: Fonts?.medium || 'System',
         fontWeight: '500',
         marginBottom: 12,
         color: '#666',
@@ -442,6 +449,7 @@ const styles = StyleSheet.create({
     },
     chartDayLabel: {
         fontSize: 10,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
     },
     milestoneCard: {
@@ -460,17 +468,20 @@ const styles = StyleSheet.create({
     },
     milestoneTitle: {
         fontSize: 16,
+        fontFamily: Fonts?.semiBold || 'System',
         fontWeight: '600',
         marginBottom: 4,
         color: '#000',
     },
     milestoneSubtitle: {
         fontSize: 14,
+        fontFamily: Fonts?.regular || 'System',
         color: '#666',
         marginBottom: 2,
     },
     milestoneDate: {
         fontSize: 12,
+        fontFamily: Fonts?.regular || 'System',
         color: '#999',
     },
     achievedBadge: {
@@ -484,6 +495,7 @@ const styles = StyleSheet.create({
     achievedText: {
         color: 'white',
         fontSize: 14,
+        fontFamily: Fonts?.bold || 'System',
         fontWeight: 'bold',
     },
 });
