@@ -1,4 +1,4 @@
-import AppHeader from '@/components/app-header';
+import Header from '@/components/header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -266,7 +266,7 @@ export default function ProgressScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <AppHeader title="Progress" leftIcon={undefined} rightIcon={undefined} onLeftPress={undefined} onRightPress={undefined} rightText={undefined} leftIconColor={undefined} rightIconColor={undefined} />
+            <Header title="Progress" leftIcon={undefined} rightIcon={undefined} onLeftPress={undefined} onRightPress={undefined} rightText={undefined} leftIconColor={undefined} rightIconColor={undefined} />
 
             {renderViewSelector()}
 

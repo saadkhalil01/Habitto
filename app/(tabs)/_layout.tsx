@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 
-import { HapticTab } from '@/components/haptic-tab';
+import { TabBar } from '@/components/tabbar';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors, Fonts } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -24,7 +24,7 @@ export default function TabLayout() {
           fontWeight: '500',
         },
         headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarButton: TabBar,
       }}>
       <Tabs.Screen
         name="index"

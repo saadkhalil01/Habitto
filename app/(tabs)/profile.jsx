@@ -1,4 +1,4 @@
-import AppHeader from '@/components/app-header';
+import Header from '@/components/header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -195,7 +195,7 @@ export default function ProfileScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-            <AppHeader title="Profile" />
+            <Header title="Profile" />
 
             <ScrollView
                 style={styles.content}

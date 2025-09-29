@@ -1,4 +1,4 @@
-import AppHeader from '@/components/app-header';
+import Header from '@/components/header';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -203,7 +203,7 @@ export default function TodayScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: Colors[colorScheme ?? 'light'].background }]} edges={['top', 'left', 'right']}>
-      <AppHeader title="Today" leftIcon={undefined} rightIcon={undefined} onLeftPress={undefined} onRightPress={undefined} rightText={undefined} leftIconColor={undefined} rightIconColor={undefined} />
+      <Header title="Today" leftIcon={undefined} rightIcon={undefined} onLeftPress={undefined} onRightPress={undefined} rightText={undefined} leftIconColor={undefined} rightIconColor={undefined} />
 
       <ThemedView style={[styles.greetingContainer, { backgroundColor: colorScheme === 'dark' ? '#000' : 'white' }]}>
         <ThemedText type="title" lightColor="#000" darkColor="#fff">Good Morning! 👋</ThemedText>
